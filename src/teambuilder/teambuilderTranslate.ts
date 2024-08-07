@@ -59,8 +59,8 @@ translateTeambuilderHomePage();
 // So we need to catch an event from the content script that sends it
 var SpriteURL = "";
 
-window.addEventListener('RecieveContent', function(evt: any) {
-	SpriteURL = evt.detail;
+window.addEventListener('ReceiveContent', function(evt: any) {
+	SpriteURL = evt.detail.spritesURL;
 });
 
 // When Teambuilder first loads, update the BattleSearchIndex

@@ -15,6 +15,13 @@ const FILTER = 13;
 const POPUPMESSAGE = 14;
 const LOGMESSAGE = 15;
 
+var hideUsernames = false;
+
+// Enable Mode Adversaire if checkbox in extension popup is checked
+window.addEventListener('ReceiveContent', function(evt: any) {
+	hideUsernames = evt.detail.modeAdversaire;
+});
+
 export const DEBUG = false;
 
 export const PLAY_SHOWDOWN_HOST = "play.pokemonshowdown.com";
@@ -5663,11 +5670,11 @@ export function translatePokemonTeam(teamName: string)
 }
 
 export function filterWhitelistedUsernames(trainerName: string) {
-	if (isWhitelistedUsername(trainerName)) {
-		return trainerName;
+	if (hideUsernames && !isWhitelistedUsername(trainerName)) {
+		return "Adversaire";
 	}
 	else {
-		return "Adversaire";
+		return trainerName;
 	}
 }
 
@@ -5890,7 +5897,6 @@ function isFirstWord(word: string, sentence: string) {
 
     return true;
 }
-
 
 export const MovesShortDescDico: { [index: string]: string; } = {
     "10,000,000 Volt Thunderbolt": "Taux de critique très élevé.",

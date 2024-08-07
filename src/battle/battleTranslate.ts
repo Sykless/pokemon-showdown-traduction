@@ -21,8 +21,8 @@ else if (window.location.host == REPLAYS_SHOWDOWN_HOST) {
 // So we need to catch an event from the content script that sends it
 var SpriteURL = "";
 
-window.addEventListener('RecieveContent', function(evt: any) {
-	SpriteURL = evt.detail;
+window.addEventListener('ReceiveContent', function(evt: any) {
+	SpriteURL = evt.detail.spritesURL;
 });
 
 // Create a MutationObserver element in order to track every page change

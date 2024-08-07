@@ -48,10 +48,12 @@ module.exports = {
          patterns: [
             // Chrome misc files
             {from: ".", to: "./chrome", context: "public"},
+            {from: ".", to: "./chrome", context: "src/popup"},
             {from: `./manifest.json`, to: 'chrome/manifest.json'},
 
             // Firefox misc files
             {from: ".", to: "./firefox", context: "public"},
+            {from: ".", to: "./firefox", context: "src/popup"},
             {
                from: `./manifest.json`, to: 'firefox/manifest.json',
                transform(content)
